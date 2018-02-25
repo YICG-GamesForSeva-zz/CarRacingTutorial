@@ -32,7 +32,7 @@ public class LapComplete : MonoBehaviour
             MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + "."; 
         }
 
-        MilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
+        MilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount.ToString("F0");
 
         LapTimeManager.MinuteCount = 0;
         LapTimeManager.SecondCount = 0;
