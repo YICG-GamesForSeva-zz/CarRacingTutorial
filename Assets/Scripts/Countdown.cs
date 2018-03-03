@@ -21,17 +21,17 @@ public class Countdown : MonoBehaviour
     IEnumerator CountStart()
     {
         yield return new WaitForSeconds(0.5f);
-        CountDown.GetComponent<Text>().text = "Ready!";
+        CountDown.GetComponent<Text>().text = "3";
         GetReady.Play();
         CountDown.SetActive(true);
         yield return new WaitForSeconds(1);
         CountDown.SetActive(false);
-        CountDown.GetComponent<Text>().text = "Set...";
+        CountDown.GetComponent<Text>().text = "2";
         GetReady.Play();
         CountDown.SetActive(true);
         yield return new WaitForSeconds(1);
         CountDown.SetActive(false);
-        CountDown.GetComponent<Text>().text = "GO!";
+        CountDown.GetComponent<Text>().text = "1";
         GetReady.Play();
         CountDown.SetActive(true);
         yield return new WaitForSeconds(1);
