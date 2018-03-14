@@ -9439,6 +9439,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 200, z: 0}
+--- !u!1 &2006165537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2006165539}
+  - component: {fileID: 2006165538}
+  m_Layer: 0
+  m_Name: WindZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!182 &2006165538
+WindZone:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2006165537}
+  m_Enabled: 1
+  m_Mode: 0
+  m_Radius: 205
+  m_WindMain: 10
+  m_WindTurbulence: 1
+  m_WindPulseMagnitude: 0.5
+  m_WindPulseFrequency: 0.01
+--- !u!4 &2006165539
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2006165537}
+  m_LocalRotation: {x: -0, y: -0, z: 0.034434967, w: 0.99940693}
+  m_LocalPosition: {x: 281, y: 21.9, z: 521}
+  m_LocalScale: {x: 1, y: 1, z: -0.40961933}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.9470003}
 --- !u!1 &2020288351
 GameObject:
   m_ObjectHideFlags: 0
