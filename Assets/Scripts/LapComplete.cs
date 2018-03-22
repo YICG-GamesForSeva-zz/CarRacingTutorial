@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class LapComplete : MonoBehaviour
 {
-    public GameObject lapCompleteTrig;
-    public GameObject halfLapTrig;
+    public GameObject LapCompleteTrig;
+    public GameObject HalfLapTrig;
 
     public GameObject MinuteDisplay;
     public GameObject SecondDisplay;
@@ -12,8 +12,14 @@ public class LapComplete : MonoBehaviour
 
     public GameObject LapTimeBox;
 
+    public GameObject LapCounter;
+    public int LapsDone;
+
     void OnTriggerEnter()
     {
+        // Having the LapsDone count increase by 1
+        LapsDone += 1; 
+
         if (LapTimeManager.SecondCount <= 9)
         {
             SecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + "."; 
@@ -42,7 +48,9 @@ public class LapComplete : MonoBehaviour
         LapTimeManager.SecondCount = 0;
         LapTimeManager.MilliCount = 0;
 
-        halfLapTrig.SetActive(true);
-        lapCompleteTrig.SetActive(false); 
+        LapCounter.GetComponent<Text>().text = "" + LapsDone;
+
+        HalfLapTrig.SetActive(true);
+        LapCompleteTrig.SetActive(false); 
     }
 }
