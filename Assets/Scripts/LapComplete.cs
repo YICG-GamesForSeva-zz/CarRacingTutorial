@@ -15,38 +15,46 @@ public class LapComplete : MonoBehaviour
     public GameObject LapCounter;
     public int LapsDone;
 
+    public float RawTime; 
+
     void OnTriggerEnter()
     {
         // Having the LapsDone count increase by 1
-        LapsDone += 1; 
+        LapsDone += 1;
+        RawTime = PlayerPrefs.GetFloat("RawTime");
 
-        if (LapTimeManager.SecondCount <= 9)
+        if (LapTimeManager.RawTime <= RawTime)
         {
-            SecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + "."; 
-        }
-        else
-        {
-            SecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
-        }
+            if (LapTimeManager.SecondCount <= 9)
+            {
+                SecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
+            }
+            else
+            {
+                SecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
+            }
 
-        if (LapTimeManager.MinuteCount <= 9)
-        {
-            MinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + "."; 
-        }
-        else
-        {
-            MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + "."; 
-        }
+            if (LapTimeManager.MinuteCount <= 9)
+            {
+                MinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
+            }
+            else
+            {
+                MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
+            }
 
-        MilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount.ToString("F0");
+            MilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount.ToString("F0");
+        }
 
         PlayerPrefs.SetInt("MinSave", LapTimeManager.MinuteCount);
         PlayerPrefs.SetInt("SecSave", LapTimeManager.SecondCount);
-        PlayerPrefs.SetFloat("MilliSave", LapTimeManager.MilliCount); 
+        PlayerPrefs.SetFloat("MilliSave", LapTimeManager.MilliCount);
+        PlayerPrefs.SetFloat("RawTime", LapTimeManager.RawTime);
 
         LapTimeManager.MinuteCount = 0;
         LapTimeManager.SecondCount = 0;
         LapTimeManager.MilliCount = 0;
+        LapTimeManager.RawTime = 0; 
 
         LapCounter.GetComponent<Text>().text = "" + LapsDone;
 
