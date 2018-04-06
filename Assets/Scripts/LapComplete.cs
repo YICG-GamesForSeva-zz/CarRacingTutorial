@@ -15,7 +15,9 @@ public class LapComplete : MonoBehaviour
     public GameObject LapCounter;
     public int LapsDone;
 
-    public float RawTime; 
+    public float RawTime;
+
+    public GameObject RaceFinish;
 
     void OnTriggerEnter()
     {
@@ -60,5 +62,13 @@ public class LapComplete : MonoBehaviour
 
         HalfLapTrig.SetActive(true);
         LapCompleteTrig.SetActive(false); 
+    }
+
+    void Update()
+    {
+        if (LapsDone == 1)
+        {
+            RaceFinish.SetActive(true);
+        }
     }
 }
