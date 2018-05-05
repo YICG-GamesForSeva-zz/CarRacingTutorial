@@ -22,7 +22,17 @@ public class LapComplete : MonoBehaviour
     void OnTriggerEnter()
     {
         // Having the LapsDone count increase by 1
-        LapsDone += 1;
+        var triggerObj = LapCompleteTrig.gameObject;
+        if (triggerObj.tag == "Dreamcar01")
+        {
+            Debug.Log("Lap Completed by AI");
+        }
+        else
+        {
+            Debug.Log("Lap Completed by User");
+            LapsDone += 1;
+        }
+
         RawTime = PlayerPrefs.GetFloat("RawTime");
 
         if (LapTimeManager.RawTime <= RawTime)
@@ -56,17 +66,17 @@ public class LapComplete : MonoBehaviour
         LapTimeManager.MinuteCount = 0;
         LapTimeManager.SecondCount = 0;
         LapTimeManager.MilliCount = 0;
-        LapTimeManager.RawTime = 0; 
+        LapTimeManager.RawTime = 0;
 
         LapCounter.GetComponent<Text>().text = "" + LapsDone;
 
         HalfLapTrig.SetActive(true);
-        LapCompleteTrig.SetActive(false); 
+        LapCompleteTrig.SetActive(false);
     }
 
     void Update()
     {
-        if (LapsDone == 1)
+        if (LapsDone == 2)
         {
             RaceFinish.SetActive(true);
         }
