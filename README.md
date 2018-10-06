@@ -3,5 +3,5 @@ This repository is created for the Car Racing Tutorial that is published on YouT
 
 # Software Being Used
 
-1. Unity - version 2017.3.0f3  
+1. Unity - version 2018.2.11f1  
 2. Visual Studio - 2017 Community
